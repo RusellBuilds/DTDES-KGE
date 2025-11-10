@@ -10,7 +10,7 @@ from torch.autograd import Variable
 original_directory = os.getcwd()
 new_directory = original_directory + '/code/Loss/'
 sys.path.append(new_directory)
-from loss_utils import DistributionSelector, weight_learner, Prior_Weight, clip_loss
+from loss_utils import DistributionSelector, weight_learner, Prior_Weight
 
 
 class SimpleSigmoidLoss(nn.Module):
