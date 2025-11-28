@@ -212,7 +212,10 @@ class KL_divergency(nn.Module):
         self.stu_preprocess = args.stu_distill_pre_process
         self.tea_preprocess = args.tea_distill_pre_process
         self.spe_temperature = 0.1
-        self.Euc_nor_temprature = 0.6
+        if args.dataset == 'WN18RR':
+            self.Euc_nor_temprature = 1.0
+        if args.dataset == 'FB15k-237':
+            self.Euc_nor_temprature = 0.6
     
     def local_standardize(self, scores, eps=1e-6):
         scores_mean = scores.mean(dim=-1, keepdim=True)
