@@ -29,7 +29,7 @@
   
     "data_paths": {
       "data_path": "data/WN18RR/",
-      "qt_dict_path": "{data_path}/HAKE_LorentzKG532_qt_dict.txt",
+      "qt_dict_path": "{data_path}/HAKE_LorentzKG_qt_dict.txt",
       "rt_dict_path": "{data_path}/rt_dict.txt"
     },
   
@@ -48,7 +48,7 @@
       "feature_teacher_Euc_pretrain_path": "models/HAKE-RotatE-WN18RR",
       "feature_teacher_Hyper_pretrain_path": "models/LorentzKG-RotatE-WN18RR",
       "logits_teacher_Euc_pretrain_path": "models/HAKE-WN18RR",
-      "logits_teacher_Hyper_pretrain_path": "models/MRR=0.532dim=100",
+      "logits_teacher_Hyper_pretrain_path": "models/LorentzKG-WN18RR",
       "logits_teacher_Hyper_dim": 100,
       "logits_teacher_Hyper_margin": 1.08,
       "logits_teacher_Hyper_noise": 0.05,
