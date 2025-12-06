@@ -16,7 +16,7 @@ Please place the downloaded datasets into the data folder and the checkpoints in
 2、Run the code
 
 ```
-python main.py config/FB15k-237
+python main.py config/FB15k-237_0.json
 ```
 
 
