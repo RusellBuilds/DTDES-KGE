@@ -237,17 +237,12 @@ def test_model(args, testdataloader, student, Euc_teacher=None, Hyper_teacher=No
                             'HITS@3': 1.0 if ranking <= 3 else 0.0,
                             'HITS@10': 1.0 if ranking <= 10 else 0.0,
                         })
-                        result_record.append(f"{positive_sample[i, 0].item()}\t{positive_sample[i, 1].item()}\t{positive_sample[i, 2].item()}\t{ranking}")
                     
                     step += len(positive_sample)
                     # bar.update(len(positive_sample))
                     bar.update(1)
         
     os.makedirs(args.save_path, exist_ok=True)
-    output_path = os.path.join(args.save_path, 'test_detail_result.txt')
-    with open(output_path, 'w') as f:
-        for record in result_record:
-            f.write(record + "\n")
     
     metrics = {}
     for metric in logs[0].keys():
