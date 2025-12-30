@@ -8,10 +8,11 @@ Take FB15k-237 as example
 
 1、dowload all required data and checkpoint from：
 
-**[Data and Checkpoint](https://drive.google.com/drive/folders/1uJ34aMx-sDzUIHPbFNeEDKO6YGnC-sjW?usp=drive_link)**
+**[Data and Checkpoint](https://drive.google.com/drive/folders/1EPU2e3gEqUPiG6QmsxxgWMgdnr574r4y?usp=sharing)**
 
 Please place the downloaded datasets into the data folder and the checkpoints into the models folder.
 
+Note: Rename checkpoint.zip in the downloaded directory to checkpoint.
 
 2、Run the code
 
