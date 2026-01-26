@@ -8,7 +8,7 @@ Take FB15k-237 as example
 
 1、dowload all required data and checkpoint from：
 
-**[Data and Checkpoint](https://drive.google.com/drive/folders/1uJ34aMx-sDzUIHPbFNeEDKO6YGnC-sjW?usp=drive_link)**
+**[Data and Checkpoint](https://drive.google.com/drive/folders/1dM1MU40oNKidDD8fD5f2RO9U6tkkQ2n-?usp=sharing)**
 
 
 
