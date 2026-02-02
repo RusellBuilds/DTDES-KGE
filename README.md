@@ -8,7 +8,7 @@ Take FB15k-237 as example
 
 1、dowload all required data and checkpoint from：
 
-**[Data and Checkpoint](https://drive.google.com/drive/folders/1dM1MU40oNKidDD8fD5f2RO9U6tkkQ2n-?usp=sharing)**
+**[Data and Checkpoint](https://drive.google.com/drive/folders/1YUErFoV8S_6YmlxbxniRMGH6o-EsbhKt?usp=sharing)**
 
 Attention: If the downloaded file is named checkpoint.zip, please do not extract it. Instead, rename it to checkpoint by deleting the .zip extension.
 
