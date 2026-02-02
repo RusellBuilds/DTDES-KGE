@@ -1,0 +1,157 @@
+{
+  "experiment_setup": {
+    "run_id": 1001,
+    "dataset": "WN18RR",
+    "cuda": true,
+    "gpu_id": 2, 
+    "cpu_num": 32,
+    "init_checkpoint_path": "",
+    "save_path": "models/{dataset}_{run_id}",
+    "only_test": false,
+    "only_Euc_teacher_test": false,
+    "only_Hyper_teacher_test": false,
+    "only_get_qtdict": false,
+    "qt_dict_name": "HAKE_LorentzKG_qt_dict.txt",
+    "perform_filtering": true
+  },
+
+  "training_params": {
+    "epoch": 125,
+    "batch_size": 240,
+    "test_batch_size": 32,
+    "learning_rate": 0.04,
+    "milestone": 100,
+    "decreasing_lr": 0.5,
+    "save_checkpoint": 10,
+    "test_per_epochs": 5,
+    "test_log_steps": 1000
+  },
+
+  "data_paths": {
+    "data_path": "data/WN18RR/",
+    "qt_dict_path": "{data_path}/HAKE_LorentzKG_qt_dict.txt",
+    "rt_dict_path": "{data_path}/rt_dict.txt"
+  },
+
+  "negative_sampling_params": {
+    "negative_sample_size": 4096,
+    "pre_sample_size": 20,
+    "filter_true_triples":true,
+    "pre_sample_top": false,
+    "negative_adversarial_sampling": false,
+    "adversarial_temperature": 1.0,
+    "subsampling": false
+  },
+
+  "teachers_config": {
+    "feature_teacher_Euc_pretrain_path": "models/HAKE-RotatE-WN18RR",
+    "feature_teacher_Hyper_pretrain_path": "models/LorentzKG-RotatE-WN18RR",
+    "logits_teacher_Euc_pretrain_path": "models/HAKE-WN18RR",
+    "logits_teacher_Hyper_pretrain_path": "models/LorentzKG-WN18RR",
+    "logits_teacher_Hyper_dim": 100,
+    "logits_teacher_Hyper_margin": 1.08,
+    "logits_teacher_Hyper_noise": 0.05,
+    "logits_teacher_Hyper_npos": 1,
+    "logits_teacher_Hyper_maxnorm": 5,
+    "logits_teacher_k": 0.3,
+    "logits_teacher_Euc_embedding_dim": 500,
+    "feature_teacher_Euc_embedding_dim": 256,
+    "feature_teacher_Hyper_embedding_dim": 128,
+    "feature_teacher_Euc_teacher_margin": 2.0,
+    "feature_teacher_Hyper_teacher_margin": 16.0
+  },
+  
+  "ditill_teacher_to_rotate": {
+    "execute_ditill_teacher_to_rotate": false,
+    "student_rotate_embedding_dim": 128
+  },
+
+  "student_model_config": {
+    "target_entity_dim": 32,
+    "target_relation_dim": 32,
+    "combine_hr_hidden_dim": 32,
+    "combine_hr_layer_mul": 2,      
+    "SCCF_mode": "similarity3",
+    "SCCF_tau": 1.0
+  },
+
+  "distributionSelector_config": {
+    "DistributionSelector_hidden_dim1": 16,
+    "DistributionSelector_hidden_dim2": 8
+  },
+
+  "weightLearner_config": {
+    "weightlearner_hidden_dim": 16,
+    "weightlearner_layer_mul": 2,
+    "weight_learner_tau": 1.0,
+    "final_function": "softmax",
+    "prior_weight": {
+      "cur_thres": -0.4,
+      "cur_opt": 0.8,
+      "kra_thres": 0.8,
+      "kra_opt": 0.8
+    }
+  },
+
+  "contrastiveLearning_config": {
+    "CL_hidden_dim": 64,
+    "CL_layermul": 1,
+    "contrastive_tau": 0.07
+  },
+
+  "loss_params": {
+    "stu_hard_loss": {
+      "pos_gamma": 9.0,
+      "neg_gamma": 9.0,
+      "pos_neg_gamma_equal": true,
+      "learn_hard_positive_weight": false,
+      "hard_positive_weight": 0.01,
+      "hard_loss_function": "SigmoidLoss",
+      "label_smoothing": 0.1
+    },
+
+    "opt_tea_hard_loss": {
+      "tea_pos_gamma": 9.0,
+      "tea_neg_gamma": 9.0,
+      "tea_stu_gamma_equal": true,
+      "tea_pos_neg_gamma_equal": true,
+      "tea_learn_hard_positive_weight": false,
+      "tea_hard_positive_weight": 0.5,
+      "tea_stu_positive_weight_equal": false
+    },
+
+    "distill_loss": {
+      "stu_distill_pre_process": "local_standardize",
+      "tea_distill_pre_process": "constant",
+      "distill_temperature": 1.0
+    },
+
+    "dynamic_loss_weight": {
+      "use_dynamic_loss_weight": true,
+      "start_Euc_weight": 1.0,
+      "start_Hyper_weight": 12.0,
+      "start_Opt_weight": 0.0,
+      "end_Euc_weight": 0.0,
+      "end_Hyper_weight": 10.0,
+      "end_Opt_weight": 1.0,
+      "stop_epoch": 5
+    },
+
+    "overall_weight": {
+      "hard_loss_weight": 1.0,
+      "euc_soft_loss_weight": 1.0,
+      "hyper_soft_loss_weight": 1.0,
+      "optimal_soft_loss_weight": 1.0,
+      "optimal_tea_loss_weight": 1.0,
+      "contrastive_loss_weight": 0.01
+    }
+  },
+  "hyperparameter_tuning": {
+      "pre_sample_size": [20],
+      "learning_rate": [0.02],
+      "distill_temperature":[1.0],
+      "hard_positive_weight":[0.5],
+      "SCCF_tau":[0.5, 1.5],
+      "pos_gamma": [6, 9, 16]
+  }
+}

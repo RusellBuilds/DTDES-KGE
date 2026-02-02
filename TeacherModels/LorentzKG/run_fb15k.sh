@@ -1,0 +1,2 @@
+python main.py --dataset FB15k-237 --cuda True --device cuda:0 --batch_size 4096 --max_grad_norm 3.0 --nneg 1024 --npos 1 --margin 1.05 --max_norm 5. --lr 0.05 --gamma 0.9 --step_size 40 --num_epochs 1000 --dim 64 --valid_steps 5 --early_stop 50 --optimizer radam --noise_reg 0.05 --Lorentz_k 1.0 \
+    --adv 0.0 --CRR_p 0.0 --CRR_t 4.0 --CRR_w 0.0 --BCE_t 1.0 --BCE_w 1.0 --positive_weight 0.01 --Margin_w 0.0 --run_id 1
