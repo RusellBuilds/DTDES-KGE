@@ -152,6 +152,6 @@
       "distill_temperature":[1.0],
       "hard_positive_weight":[0.5],
       "SCCF_tau":[0.5, 1.5],
-      "pos_gamma": [6, 9, 16]
+      "pos_gamma": [12, 16]
   }
 }

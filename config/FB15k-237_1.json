@@ -38,7 +38,7 @@
     "pre_sample_size": 20,
     "filter_true_triples":false,
     "pre_sample_top": false,
-    "negative_adversarial_sampling": false,
+    "negative_adversarial_sampling": true,
     "adversarial_temperature": 1.0,
     "subsampling": false
   },
@@ -149,7 +149,7 @@
       "optimal_tea_loss_weight": [1.0],
       "distill_temperature":[0.6],
       "hard_positive_weight":[0.01],
-      "SCCF_tau":[1.0, 1.5],
+      "SCCF_tau":[0.5, 1.0],
       "pos_gamma": [4]
   }
 }

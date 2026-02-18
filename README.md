@@ -12,6 +12,7 @@ Take FB15k-237 as example
 
 Attention: If the downloaded file is named checkpoint.zip, please do not extract it. Instead, rename it to checkpoint by deleting the .zip extension.
 
+Please place the data downloaded from Google Drive in the data directory, and place the checkpoint in the models directory.
 
 2、Run the code
 
